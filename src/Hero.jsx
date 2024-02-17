@@ -41,7 +41,7 @@ const Hero = () => {
       <div className="lg:flex w-full lg:flex-row flex flex-col-reverse">
         {/* left */}
         <div className="flex lg:py-0 lg:p-[7.5%] pt-14 pb-44 w-full px-9 lg:w-1/2  flex-col justify-center gap-6 ">
-          <h1 className="text-[#2f5fc7] text-[48px] lg:text-[72px] font-bold">
+          <h1 className="text-[#2f5fc7] text-[48px] lg:text-7xl font-bold">
             Let's get <br /> cooking
           </h1>
           <p className="text-[#2f5fc7] text-[16px] lg:text-[24px] max-w-[300px] lg:max-w-[650px] font-bold">

@@ -60,7 +60,7 @@ const Recipe = () => {
               </div>
             </div>
           </div>
-          <div className="w-screen">
+          <div className="w-screen overflow-x-auto">
             <div className="flex gap-9 items-center">
               {RecipeObjets.map((item) => (
                 <RecipeCard

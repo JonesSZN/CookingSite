@@ -8,8 +8,7 @@ const Menu = () => {
       cookTime: 20,
       dishName: "Yoghurt Stuffed Eggplant",
       image: "salad2.jpg",
-      vegan: "VEGAN",
-      lunch: "LUNCH",
+      tags: ["VEGAN", "LUNCH"],
     },
 
     {
@@ -18,8 +17,7 @@ const Menu = () => {
       cookTime: 20,
       dishName: "Fluffy Pecan Waffles",
       image: "waffles.jpg",
-      vegan: "BREAKFAST",
-      lunch: "DESSERT",
+      tags: ["BREAKFAST", "DESSERT"],
     },
 
     {
@@ -28,8 +26,7 @@ const Menu = () => {
       cookTime: 40,
       dishName: "Cozy Weekend Chili",
       image: "pot1.jpeg",
-      vegan: "DINNER",
-      lunch: "LUNCH",
+      tags: ["LUNCH", "DINNER"],
     },
     {
       servings: 8,
@@ -37,8 +34,7 @@ const Menu = () => {
       cookTime: 30,
       dishName: "Cinnamon Rolls",
       image: "cinnamon.jpg",
-      vegan: "BREAKFAST",
-      lunch: "DESSERT",
+      tags: ["DESSERT", "BREAKFAST"],
     },
     {
       servings: 6,
@@ -46,8 +42,7 @@ const Menu = () => {
       cookTime: 30,
       dishName: "Roasted Butternut Squash Soup",
       image: "soup.jpeg",
-      vegan: "LUNCH",
-      lunch: "DINNER",
+      tags: ["DINNER", "LUNCH"],
     },
     {
       servings: 4,
@@ -55,8 +50,7 @@ const Menu = () => {
       cookTime: 0,
       dishName: "Watermelon Shrimp Summer Salad",
       image: "salad1.jpg",
-      vegan: "LUNCH",
-      lunch: "SNACK",
+      tags: ["SNACK", "LUNCH"],
     },
   ];
 
@@ -79,6 +73,11 @@ const Menu = () => {
 };
 
 const MenuCard = ({ foodObject }) => {
+  const childrenToRender = [
+    <p className="text-[14px]">{foodObject.servings} servings</p>,
+    <p className="text-[14px]">{foodObject.prepTime} min Preptime </p>,
+    <p className="text-[14px]">{foodObject.cookTime} cooktime</p>,
+  ];
   return (
     <div className="flex flex-col group cursor-pointer relative gap-3">
       <img
@@ -87,26 +86,20 @@ const MenuCard = ({ foodObject }) => {
         alt=""
       />
       <div className="absolute right-2 top-3 flex gap-2 items-center">
-        <div className="text-black group-hover:bg-[#0f7a60] group-hover:text-white duration-500 bg-white rounded-md py-2 px-3">
-          {foodObject.vegan}
-        </div>
-        <div className="text-black group-hover:bg-[#0f7a60] group-hover:text-white duration-500 bg-white rounded-md py-2 px-3">
-          {foodObject.lunch}
-        </div>
+        {foodObject.tags.map((tag) => (
+          <div className="text-black group-hover:bg-[#0f7a60] group-hover:text-white duration-500 bg-white rounded-md py-2 px-3">
+            {tag}
+          </div>
+        ))}
       </div>
+
       <div className="lg:flex lg:flex-row flex flex-col gap-2 ">
-        <div className="flex text-[#0f7a60] gap-2 items-center py-[4px] px-2 rounded-md border border-[#0f7a60]">
-          <UserIcon size="16px" />
-          <p className="text-[14px]">{foodObject.servings} servings</p>
-        </div>
-        <div className="flex text-[#0f7a60] gap-2 items-center py-[4px] px-2 rounded-md border border-[#0f7a60]">
-          <UserIcon size="16px" />
-          <p className="text-[14px]">{foodObject.prepTime} min Preptime </p>
-        </div>
-        <div className="flex text-[#0f7a60] gap-2 items-center py-[4px] px-2 rounded-md border border-[#0f7a60]">
-          <UserIcon size="16px" />
-          <p className="text-[14px]">{foodObject.cookTime} cooktime</p>
-        </div>
+        {childrenToRender.map((child) => (
+          <div className="flex text-[#0f7a60] gap-2 items-center py-[4px] px-2 rounded-md border border-[#0f7a60]">
+            <UserIcon size="16px" />
+            {child}
+          </div>
+        ))}
       </div>
       <p className="text-[24px] text-[#292929] font-bold">
         {foodObject.dishName}

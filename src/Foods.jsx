@@ -5,21 +5,21 @@ const Foods = () => {
       image: "picnic.jpeg",
       Name: "Sharon Daniels",
       Date: "February 10,2024",
-      tags: "LIFESTYLE",
+      tags: ["LIFESTYLE"],
     },
     {
       text: "My best advice for never skipping breakfast.",
       image: "fruits.jpeg",
       Name: "Sharon Daniels",
       Date: "February 10,2024",
-      tags: "LIFESTYLE",
+      tags: ["LIFESTYLE"],
     },
     {
       text: "A guide to hosting memorable dinners with friends.",
       image: "drinks.jpeg",
       Name: "Sharon Daniels",
       Date: "February 10,2024",
-      tags: "HOSTING",
+      tags: ["HOSTING", "LIFESTYLE"],
     },
   ];
   return (
@@ -47,8 +47,12 @@ const Card = ({ foodObject }) => {
         alt=""
       />
       <div className="absolute right-5 top-5">
-        <div className="text-black group-hover:bg-[#0f7a60] group-hover:text-white duration-500 bg-white rounded-md py-2 px-3">
-          {foodObject.tags}
+        <div className="flex gap-2">
+          {foodObject.tags.map((tag) => (
+            <div className="text-black group-hover:bg-[#0f7a60] group-hover:text-white duration-500 bg-white rounded-md py-2 px-3">
+              {tag}
+            </div>
+          ))}
         </div>
       </div>
       <p className="text-[24px] text-black font-bold">{foodObject.text}</p>

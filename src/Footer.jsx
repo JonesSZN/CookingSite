@@ -37,12 +37,13 @@ const Top = () => {
 };
 
 const Bottom = () => {
+  const Links = ["Style Guide.", "Changelog.", "Licenses."];
   return (
     <div className="lg:flex lg:justify-between items-center">
       <div className="lg:flex gap-4 text-center text-white">
-        <a href="www.yt">Style Guide.</a>
-        <a href="www.yt">Changelog.</a>
-        <a href="www.yt">Licenses.</a>
+        {Links.map((link) => (
+          <a href="www.yt">{link}</a>
+        ))}
       </div>
       <div className="flex gap-4 items-center">
         <p className="text-white text-center lg:py-0 py-4 ">
