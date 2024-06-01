@@ -85,9 +85,9 @@ const MenuCard = ({ foodObject }) => {
         src={foodObject.image}
         alt=""
       />
-      <div className="absolute right-2 top-3 flex gap-2 items-center">
+      <div className="lg:absolute lg:right-2 lg:top-3 absolute right-0 flex gap-2 items-center">
         {foodObject.tags.map((tag) => (
-          <div className="text-black group-hover:bg-[#0f7a60] group-hover:text-white duration-500 bg-white rounded-md py-2 px-3">
+          <div className="text-black group-hover:bg-[#0f7a60] group-hover:text-white duration-500 bg-white rounded-md lg:py-2 lg:px-3 py-1 px-2">
             {tag}
           </div>
         ))}
