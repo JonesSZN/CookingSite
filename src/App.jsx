@@ -14,7 +14,7 @@ const Recipe = () => {
   const RecipeObjets = [
     {
       Name: "Breakfast",
-      image: "Cinnamon.jpg",
+      image: "cinnamon.jpg",
       color: "#0f7a60",
     },
     {
